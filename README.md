@@ -52,16 +52,18 @@ Track changes across your `style`, `script` and `theme` folder, auto-update your
 
 ## What's Included?
 
-- **Theme Boilerplate** - A starter theme/boilerplate code with essential files and configurations to jumpstart theme development with your selected css framework baked in ready to use.
+- **Scaffold Themes** - Quickly generate new WordPress theme with essential files and configurations to jumpstart theme development with your selected css framework baked in ready to use.
 
-- **Hot Reload** - automatically updates your code in real-time as you make changes to your code, ensuring that your changes are instantly reflected in the browser without requiring manual refreshes.
+- **Hot Reload** - Experience Automatically updates your code in real-time as you make changes to your code, ensuring that your changes are instantly reflected in the browser without requiring manual refreshes.
 
 - **Live Tunnel** - Exposes your local development environment (i.e. localhost) publicly accessible URL online, lets you showcase and test your WordPress theme in a live environment, allowing collaborators and your clients to preview your work.
 
-- **Script Bundler** - Ready to bundle JavaScript files, making it easier to manage dependencies and optimize the performance of your theme.
+- **Script Bundling** - Ready to bundle JavaScript files, making it easier to manage dependencies and optimize the performance of your theme.
 
-- **Style Compiler/Bundler** - A Compiler ready to transform your Sass/SCSS or plain CSS files into compressed CSS, allowing you to write styles more efficiently and modularly.
+- **Style Compilation/Bundling** - A Compiler ready to transform your Sass/SCSS or plain CSS files into compressed CSS, allowing you to write styles more efficiently and modularly.
 
-- **Style Prefixer** - Get automatic addition of vendor prefixes to CSS code, to ensuring that your styles works correctly and its compatible across different web browsers.
+- **Style Prefixing** - Get automatic addition of vendor prefixes to CSS code, to ensuring that your styles works correctly and its compatible across different web browsers.
 
-- **Theme Bundler (with Automatic Versioning)** - Generate your final production-ready theme bundle zip with automatic version incrementing in the `funtions.php` file.
+- **Theme Bundling (with Automatic Versioning)** - Generate your final production-ready theme bundle zip with automatic version incrementing in the `funtions.php` file.
+
+Whether you're a seasoned developer or just starting with WordPress theme development, the Create WP Theme Toolkit empowers you to create exceptional themes with ease.
