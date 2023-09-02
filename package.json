@@ -1,0 +1,25 @@
+{
+  "name": "create-wp-theme",
+  "version": "0.0.0",
+  "private": true,
+  "description": "An all-in-one WordPress theme development toolkit with JavaScript bundler, sass/css compiler, and live-reloading server.",
+  "keywords": [
+    "wordpress theme development",
+    "wordpress theme boilerplate",
+    "wordpress javascript bundler",
+    "wordpress sass compiler",
+    "bootstrap wordpress template",
+    "wordpress material design template",
+    "browsersync with wordpress",
+    "wordpress theme cli app",
+    "theme customization",
+    "wordpress theme development toolkit",
+    "wordpress theme generator",
+    "front-end development"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Olabode Lawal-Shittabey <babblebey@gmail.com>",
+  "license": "MIT"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "create-wp-theme-cli",
+  "version": "0.0.0",
+  "description": "Command-line tool for creating WordPress theme.",
+  "license": "MIT",
+  "bin": {
+    "create-wp-theme": "",
+    "cwpt": ""
+  },
+  "keywords": [
+    "cwpt cli",
+    "create-wordpress-theme cli",
+    "wordpress theme cli",
+    "wordpress theme development cli"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Olabode Lawal-Shittabey <babblebey@gmail.com>"
+}
