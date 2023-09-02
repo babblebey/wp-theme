@@ -1,0 +1,18 @@
+{
+  "name": "create-wp-theme-docs",
+  "version": "0.0.0",
+  "description": "Command-line tool for creating WordPress theme.",
+  "license": "MIT",
+  "bin": {
+    "create-wp-theme": "",
+    "cwpt": ""
+  },
+  "keywords": [
+    "cwpt documentation",
+    "create-wordpress-theme documentation"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Olabode Lawal-Shittabey <babblebey@gmail.com>"
+}
