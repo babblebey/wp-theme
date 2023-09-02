@@ -2,10 +2,6 @@
 
 A one-stop solution for crafting WordPress themes with finesse. Seamlessly bundled with a powerful tools that simplifies your development workflow.
 
-```shell
-npx create-wp-theme <theme-name>
-```
-
 ## Quick start
 
 ### Online Generator
