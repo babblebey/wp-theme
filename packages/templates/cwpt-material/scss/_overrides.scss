@@ -1,0 +1,13 @@
+// Write any default map overrides here
+$primary: #6200ee;
+$secondary: #03dac6;
+$background: #fff;
+
+@use "@material/theme" with (
+	$primary: $primary,
+	$secondary: $secondary,
+	$background: $background
+);
+
+$on-primary: if(contrast-tone($primary) == 'dark', #000, #fff);
+$on-secondary: if(contrast-tone($secondary) == 'dark', #000, #fff);
