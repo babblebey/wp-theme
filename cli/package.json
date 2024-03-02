@@ -16,5 +16,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Olabode Lawal-Shittabey <babblebey@gmail.com>"
+  "author": "Olabode Lawal-Shittabey <babblebey@gmail.com>",
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "giget": "^1.2.1",
+    "minimist": "^1.2.8"
+  }
 }
