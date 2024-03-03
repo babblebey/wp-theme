@@ -6,7 +6,7 @@ import { intro, cancel, spinner } from "@clack/prompts";
 import { downloadTemplate } from "giget";
 
 async function run() {
-  const currentWorkingDir = process.cwd();
+  const cwd = process.cwd();
   // start
   intro(color.inverse("create-wp-theme"));
 
@@ -20,7 +20,7 @@ async function run() {
   const s = spinner();
 
   // compute location to save file to
-  const root = path.join(currentWorkingDir, themeNameFromArgv);
+  const root = path.join(cwd, themeNameFromArgv);
 
   // check if location already exist
   if (fs.existsSync(root)) {
@@ -59,6 +59,18 @@ async function run() {
   // @todo: Copy base `theme` folder 
 
   s.stop("File copied");
+
+  s.start("Setting things up.");
+
+  // @todo: Modify files, set up theme name in respective places
+
+  s.stop("You are all set");
+
+  console.log("\nNow run:\n");
+
+  console.log(`  ${color.cyan(`cd ${path.relative(cwd, root)}`)}`);
+  console.log(`  ${color.cyan("npm install")}`);
+  console.log(`  ${color.cyan("npm run watch")}`);
 }
 
 run().catch(console.error);
