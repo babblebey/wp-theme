@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "build:scripts": "esbuild ./js/main.js --bundle --outfile=./theme/js/main.js",
-    "build:styles": "sass ./scss/main.scss ./theme/css/main.css",
-    "build:prefix-styles:": "postcss --replace ./theme/css/main.css --use autoprefixer",
+    "build:scripts": "esbuild ./js/main.js --bundle --outfile=./theme/js/main.min.js",
+    "build:styles": "sass ./scss/main.scss ./theme/css/main.min.css",
+    "build:prefix-styles:": "postcss --replace ./theme/css/main.min.css --use autoprefixer",
     "development": "run-p build:**",
     "dev": "npm run development",
     "watch:scripts": "npm run build:scripts -- --watch",
@@ -15,7 +15,7 @@
     "production:styles": "npm run build:styles -- --style compressed",
     "production": "run-s production:** build:prefix-styles",
     "prod": "npm run production",
-    "zip": "node node_scripts/zip.js _cwpt",
+    "zip": "node node_scripts/zip.js $cwpt",
     "bundle": "run-s production zip"
   },
   "devDependencies": {
