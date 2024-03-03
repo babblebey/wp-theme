@@ -165,11 +165,12 @@ add_action( 'after_setup_theme', 'cwpt_content_width', 0 );
 function cwpt_scripts() {
 	// Theme styles
 
+	// TODO: Remove all default styles
 	// YOU SHOULD COMMENT THIS LINE OUT
 	wp_enqueue_style( 'cwpt-style', get_stylesheet_uri(), array(), CWPT_VERSION );
 	
-	wp_enqueue_style( 'cwpt-style',  get_template_directory_uri() . '/css/main.min.css', array(), CWPT_VERSION );
-	wp_enqueue_script( 'cwpt-script', get_template_directory_uri() . '/js/main.min.js', array(), CWPT_VERSION, true );
+	wp_enqueue_style( 'cwpt-main-style',  get_template_directory_uri() . '/css/main.min.css', array(), CWPT_VERSION );
+	wp_enqueue_script( 'cwpt-main-script', get_template_directory_uri() . '/js/main.min.js', array(), CWPT_VERSION, true );
 
 	// Threaded comment reply styles
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
