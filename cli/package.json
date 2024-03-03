@@ -1,6 +1,7 @@
 {
   "name": "create-wp-theme-cli",
   "version": "0.0.0",
+  "type": "module",
   "description": "Command-line tool for creating WordPress theme.",
   "license": "MIT",
   "bin": {
@@ -20,6 +21,7 @@
   "dependencies": {
     "@clack/prompts": "^0.7.0",
     "giget": "^1.2.1",
-    "minimist": "^1.2.8"
+    "minimist": "^1.2.8",
+    "picocolors": "^1.0.0"
   }
 }
