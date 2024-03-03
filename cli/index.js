@@ -4,6 +4,7 @@ import color from "picocolors";
 import minimist from "minimist";
 import { downloadTemplate } from "giget";
 import { intro, cancel, spinner } from "@clack/prompts";
+import resolveThemeName from "./lib/resolve-theme-name.js";
 
 async function run() {
   const cwd = process.cwd();
@@ -14,13 +15,14 @@ async function run() {
   const argv = minimist(process.argv.slice(2));
 
   // get theme name from argv
-  const themeNameFromArgv = argv._[0];
+  // const themeNameFromArgv = argv._[0];
+  const themeName = await resolveThemeName(argv._[0])
 
   // instantiate spinner
   const s = spinner();
 
   // compute location to save file to
-  const root = path.join(cwd, themeNameFromArgv);
+  const root = path.join(cwd, themeName);
 
   // check if location already exist
   if (fs.existsSync(root)) {
@@ -40,7 +42,7 @@ async function run() {
   // copy css framework related files
   const templateToCopy = `cwpt-${cssFramework}`;
   const copiedTemplate = await downloadTemplate(`github:babblebey/create-wp-theme/packages/templates/${templateToCopy}#develop`, {
-    dir: themeNameFromArgv,
+    dir: themeName,
     repo: "babblebey/create-wp-theme",
     // ref: "develop",
     force: true,
@@ -49,7 +51,7 @@ async function run() {
 
   // copy node_script
   const copiedNodeScript = await downloadTemplate(`github:babblebey/create-wp-theme/packages/node_scripts#develop`, {
-    dir: `${themeNameFromArgv}/node_scripts`,
+    dir: `${themeName}/node_scripts`,
     repo: "babblebey/create-wp-theme",
     // ref: "develop",
     force: true,
@@ -58,7 +60,7 @@ async function run() {
 
   // @todo: Copy base `theme` folder 
   const copiedBaseTheme = await downloadTemplate(`github:babblebey/create-wp-theme/packages/theme#develop`, {
-    dir: `${themeNameFromArgv}/theme`,
+    dir: `${themeName}/theme`,
     repo: "babblebey/create-wp-theme",
     // ref: "develop",
     force: true,
@@ -74,7 +76,7 @@ async function run() {
   const packageJsonContent = fs.readFileSync(packageJsonFile, "utf-8");
   fs.writeFileSync(
     packageJsonFile, 
-    packageJsonContent.replace("$cwpt", themeNameFromArgv)
+    packageJsonContent.replace("$cwpt", themeName)
   );
 
   // modify placeholder in `theme/style.css`
@@ -88,7 +90,7 @@ async function run() {
   // write theme name
   fs.writeFileSync(
     styleCssFile,
-    styleCssContent.replaceAll("$cwpt", themeNameFromArgv)
+    styleCssContent.replaceAll("$cwpt", themeName)
   );
 
   /**
