@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import color from "picocolors";
 import minimist from "minimist";
-import { intro, cancel, spinner } from "@clack/prompts";
 import { downloadTemplate } from "giget";
+import { intro, cancel, spinner } from "@clack/prompts";
 
 async function run() {
   const cwd = process.cwd();
@@ -35,7 +35,7 @@ async function run() {
   // get specified css framework - only if supported
   const cssFramework = supportedCSSFramework.find(key => argv[key]);
 
-  s.start("Copying theme files.");
+  s.start("Copying theme files");
 
   // copy css framework related files
   const templateToCopy = `cwpt-${cssFramework}`;
@@ -65,13 +65,37 @@ async function run() {
     cwd: "."
   });
 
-  s.stop("File copied");
+  s.stop("Files copied");
 
-  s.start("Setting things up.");
+  s.start("Setting things up");
 
-  // @todo: Modify files, set up theme name in respective places
+  // modify placeholder in package.json `bundle` script
+  const packageJsonFile = path.resolve(root, "package.json");
+  const packageJsonContent = fs.readFileSync(packageJsonFile, "utf-8");
+  fs.writeFileSync(
+    packageJsonFile, 
+    packageJsonContent.replace("$cwpt", themeNameFromArgv)
+  );
 
-  s.stop("You are all set");
+  // modify placeholder in `theme/style.css`
+  const styleCssFile = path.resolve(root, "theme/style.css");
+  const styleCssContent = fs.readFileSync(styleCssFile, "utf-8");
+  // write cssFramework
+  fs.writeFileSync(
+    styleCssFile,
+    styleCssContent.replaceAll("$cssFramework", cssFramework)
+  );
+  // write theme name
+  fs.writeFileSync(
+    styleCssFile,
+    styleCssContent.replaceAll("$cwpt", themeNameFromArgv)
+  );
+
+  /**
+   * @todo consider modifying namespaces in `function.php` to theme name
+   */
+
+  s.stop("You're all set!");
 
   console.log("\nNow run:\n");
 
