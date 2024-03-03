@@ -57,6 +57,13 @@ async function run() {
   });
 
   // @todo: Copy base `theme` folder 
+  const copiedBaseTheme = await downloadTemplate(`github:babblebey/create-wp-theme/packages/theme#develop`, {
+    dir: `${themeNameFromArgv}/theme`,
+    repo: "babblebey/create-wp-theme",
+    // ref: "develop",
+    force: true,
+    cwd: "."
+  });
 
   s.stop("File copied");
 
