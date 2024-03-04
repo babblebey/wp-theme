@@ -5,6 +5,7 @@ import minimist from "minimist";
 import { downloadTemplate } from "giget";
 import { intro, cancel, spinner } from "@clack/prompts";
 import resolveThemeName from "./lib/resolve-theme-name.js";
+import { fileExists } from "./utils/file-exist.js";
 
 async function run() {
   const cwd = process.cwd();
@@ -22,12 +23,12 @@ async function run() {
   const s = spinner();
 
   // compute location to save file to
-  const root = path.join(cwd, themeName);
+  const filePath = path.join(cwd, themeName);
 
   // check if location already exist
-  if (fs.existsSync(root)) {
+  if (fileExists(filePath)) {
     console.log();
-    cancel(color.red(`${root} already exists.`));
+    cancel(color.red(`${filePath} already exists.`));
     process.exit(1);
   }
 
@@ -72,7 +73,7 @@ async function run() {
   s.start("Setting things up");
 
   // modify placeholder in package.json `bundle` script
-  const packageJsonFile = path.resolve(root, "package.json");
+  const packageJsonFile = path.resolve(filePath, "package.json");
   const packageJsonContent = fs.readFileSync(packageJsonFile, "utf-8");
   fs.writeFileSync(
     packageJsonFile, 
@@ -80,7 +81,7 @@ async function run() {
   );
 
   // modify placeholder in `theme/style.css`
-  const styleCssFile = path.resolve(root, "theme/style.css");
+  const styleCssFile = path.resolve(filePath, "theme/style.css");
   const styleCssContent = fs.readFileSync(styleCssFile, "utf-8");
   // write cssFramework
   fs.writeFileSync(
@@ -101,7 +102,7 @@ async function run() {
 
   console.log("\nNow run:\n");
 
-  console.log(`  ${color.cyan(`cd ${path.relative(cwd, root)}`)}`);
+  console.log(`  ${color.cyan(`cd ${path.relative(cwd, filePath)}`)}`);
   console.log(`  ${color.cyan("npm install")}`);
   console.log(`  ${color.cyan("npm run watch")}`);
 }
