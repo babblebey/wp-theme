@@ -4,8 +4,9 @@ import color from "picocolors";
 import minimist from "minimist";
 import { downloadTemplate } from "giget";
 import { intro, cancel, spinner } from "@clack/prompts";
-import resolveThemeName from "./lib/resolve-theme-name.js";
 import { fileExists } from "./utils/file-exist.js";
+import resolveThemeName from "./lib/resolve-theme-name.js";
+import resolveCSSFramework from "./lib/resolve-css-framework.js";
 
 async function run() {
   const cwd = process.cwd();
@@ -32,11 +33,8 @@ async function run() {
     process.exit(1);
   }
 
-  // state supported css framework
-  const supportedCSSFramework = ["bootstrap"];
-
   // get specified css framework - only if supported
-  const cssFramework = supportedCSSFramework.find(key => argv[key]);
+  const cssFramework = await resolveCSSFramework(argv);
 
   s.start("Copying theme files");
 
