@@ -5,7 +5,7 @@ import { SUPPORTED_CSS_FRAMEWORK } from "../../packages/constants.js";
 /**
  * Resolve a CSS Framework for process from arguments (present or not)
  * @param {minimist.ParsedArgs} argv 
- * @returns {string | NodeJS.Process}
+ * @returns {Promise<string>}
  */
 export default async function resolveCSSFramework(argv) {
   let cssFramework;
@@ -29,7 +29,7 @@ export default async function resolveCSSFramework(argv) {
 
     if (isCancel(cssFramework)) {
       cancel("Operation cancelled.");
-      return process.exit(0);
+      process.exit(0);
     }
   } else if (countOfCssFrameworksInArgv === 1) {
     cssFramework = SUPPORTED_CSS_FRAMEWORK.find(key => argv[key.slug]).slug;
@@ -38,7 +38,7 @@ export default async function resolveCSSFramework(argv) {
     cancel(color.red(
       `Please provide one of the currently supported flags: ${SUPPORTED_CSS_FRAMEWORK.map(framework => `--${framework.slug}`).join(" ")}`
     ));
-    return process.exit(1);
+    process.exit(1);
   }
 
   return cssFramework;

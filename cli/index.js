@@ -1,3 +1,5 @@
+// @ts-check
+
 import fs from "fs";
 import path from "path";
 import color from "picocolors";
@@ -12,6 +14,7 @@ import downloadCWPTPackage from "./lib/download-package.js";
 
 async function run() {
   const cwd = process.cwd();
+  
   // start
   intro(color.inverse("create-wp-theme"));
 
@@ -20,7 +23,7 @@ async function run() {
 
   // get theme name from argv
   // const themeNameFromArgv = argv._[0];
-  const themeName = await resolveThemeName(argv._[0])
+  const themeName = await resolveThemeName(argv._[0]);
 
   // instantiate spinner
   const s = spinner();
