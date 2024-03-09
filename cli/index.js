@@ -2,13 +2,13 @@ import fs from "fs";
 import path from "path";
 import color from "picocolors";
 import minimist from "minimist";
-import { downloadTemplate } from "giget";
 import { intro, cancel, spinner, note } from "@clack/prompts";
 import { fileExists } from "./utils/file-exist.js";
 import resolveThemeName from "./lib/resolve-theme-name.js";
 import resolveCSSFramework from "./lib/resolve-css-framework.js";
 import injectThemeName from "./lib/inject-theme-name.js";
 import injectCSSFramework from "./lib/inject-css-framework.js";
+import downloadCWPTPackage from "./lib/download-package.js";
 
 async function run() {
   const cwd = process.cwd();
@@ -40,33 +40,15 @@ async function run() {
 
   s.start("Copying theme files");
 
-  // copy css framework related files
-  const templateToCopy = `cwpt-${cssFramework}`;
-  const copiedTemplate = await downloadTemplate(`github:babblebey/create-wp-theme/packages/templates/${templateToCopy}#develop`, {
-    dir: themeName,
-    repo: "babblebey/create-wp-theme",
-    // ref: "develop",
-    force: true,
-    cwd: "."
-  });
+  // download cssFramework related package
+  const templateToCopy = `templates/cwpt-${cssFramework}`;
+  await downloadCWPTPackage(templateToCopy, themeName);
 
-  // copy node_script
-  const copiedNodeScript = await downloadTemplate(`github:babblebey/create-wp-theme/packages/node_scripts#develop`, {
-    dir: `${themeName}/node_scripts`,
-    repo: "babblebey/create-wp-theme",
-    // ref: "develop",
-    force: true,
-    cwd: "."
-  });
+  // download node_script package
+  await downloadCWPTPackage("node_scripts", `${themeName}/node_scripts`);
 
-  // @todo: Copy base `theme` folder 
-  const copiedBaseTheme = await downloadTemplate(`github:babblebey/create-wp-theme/packages/theme#develop`, {
-    dir: `${themeName}/theme`,
-    repo: "babblebey/create-wp-theme",
-    // ref: "develop",
-    force: true,
-    cwd: "."
-  });
+  // download base `theme` package
+  await downloadCWPTPackage("theme", `${themeName}/theme`);
 
   s.stop("Files copied");
 
