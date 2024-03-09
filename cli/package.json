@@ -5,8 +5,8 @@
   "description": "Command-line tool for creating WordPress theme.",
   "license": "MIT",
   "bin": {
-    "create-wp-theme": "",
-    "cwpt": ""
+    "create-wp-theme": "./index.js",
+    "cwpt": "./index.js"
   },
   "keywords": [
     "cwpt cli",
