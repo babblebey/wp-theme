@@ -1,3 +1,4 @@
+import color from "picocolors"
 import { select, cancel, isCancel } from "@clack/prompts";
 import { SUPPORTED_CSS_FRAMEWORK } from "../../packages/constants.js";
 
@@ -27,16 +28,15 @@ export default async function resolveCSSFramework(argv) {
     });
 
     if (isCancel(cssFramework)) {
-      cancel('Operation cancelled.');
+      cancel("Operation cancelled.");
       return process.exit(0);
     }
   } else if (countOfCssFrameworksInArgv === 1) {
-    cssFramework = SUPPORTED_CSS_FRAMEWORK.find(key => argv[key.slug]);
+    cssFramework = SUPPORTED_CSS_FRAMEWORK.find(key => argv[key.slug]).slug;
   } else {
     console.log();
     cancel(color.red(
-      `Please provide one of the currently supported flags: 
-      ${SUPPORTED_CSS_FRAMEWORK.map(framework => `--${framework.slug}`).join(" ")}`
+      `Please provide one of the currently supported flags: ${SUPPORTED_CSS_FRAMEWORK.map(framework => `--${framework.slug}`).join(" ")}`
     ));
     return process.exit(1);
   }
