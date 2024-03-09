@@ -7,6 +7,8 @@ import { intro, cancel, spinner, note } from "@clack/prompts";
 import { fileExists } from "./utils/file-exist.js";
 import resolveThemeName from "./lib/resolve-theme-name.js";
 import resolveCSSFramework from "./lib/resolve-css-framework.js";
+import injectThemeName from "./lib/inject-theme-name.js";
+import injectCSSFramework from "./lib/inject-css-framework.js";
 
 async function run() {
   const cwd = process.cwd();
@@ -70,27 +72,16 @@ async function run() {
 
   s.start("Setting things up");
 
-  // modify placeholder in package.json `bundle` script
+  // modify placeholders in package.json `bundle` script
   const packageJsonFile = path.resolve(filePath, "package.json");
   const packageJsonContent = fs.readFileSync(packageJsonFile, "utf-8");
-  fs.writeFileSync(
-    packageJsonFile, 
-    packageJsonContent.replace("$cwpt", themeName)
-  );
+  injectThemeName(packageJsonFile, packageJsonContent, themeName);
 
-  // modify placeholder in `theme/style.css`
+  // modify placeholders in `theme/style.css`
   const styleCssFile = path.resolve(filePath, "theme/style.css");
   const styleCssContent = fs.readFileSync(styleCssFile, "utf-8");
-  // write cssFramework
-  fs.writeFileSync(
-    styleCssFile,
-    styleCssContent.replaceAll("$cssFramework", cssFramework)
-  );
-  // write theme name
-  fs.writeFileSync(
-    styleCssFile,
-    styleCssContent.replaceAll("$cwpt", themeName)
-  );
+  injectThemeName(styleCssFile, styleCssContent, themeName);
+  injectCSSFramework(styleCssFile, styleCssContent, cssFramework);
 
   /**
    * @todo consider modifying namespaces `cwpt` in `function.php` to theme name
