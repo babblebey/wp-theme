@@ -3,7 +3,7 @@ import path from "path";
 import color from "picocolors";
 import minimist from "minimist";
 import { downloadTemplate } from "giget";
-import { intro, cancel, spinner } from "@clack/prompts";
+import { intro, cancel, spinner, note } from "@clack/prompts";
 import { fileExists } from "./utils/file-exist.js";
 import resolveThemeName from "./lib/resolve-theme-name.js";
 import resolveCSSFramework from "./lib/resolve-css-framework.js";
@@ -93,16 +93,15 @@ async function run() {
   );
 
   /**
-   * @todo consider modifying namespaces in `function.php` to theme name
+   * @todo consider modifying namespaces `cwpt` in `function.php` to theme name
    */
 
   s.stop("You're all set!");
 
-  console.log("\nNow run:\n");
-
-  console.log(`  ${color.cyan(`cd ${path.relative(cwd, filePath)}`)}`);
-  console.log(`  ${color.cyan("npm install")}`);
-  console.log(`  ${color.cyan("npm run watch")}`);
+  note(
+    `${color.cyan(`cd ${path.relative(cwd, filePath)}`)}\n${color.cyan("npm install")}\n${color.cyan("npm run watch")}`, 
+    "Now run"
+  );
 }
 
 run().catch(console.error);
