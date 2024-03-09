@@ -5,6 +5,7 @@
   "description": "Command-line tool for creating WordPress theme.",
   "license": "MIT",
   "bin": {
+    "@babblebey/create-wp-theme": "./index.js",
     "create-wp-theme": "./index.js",
     "cwpt": "./index.js"
   },
