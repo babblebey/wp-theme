@@ -11,6 +11,7 @@ import resolveCSSFramework from "./lib/resolve-css-framework.js";
 import injectThemeName from "./lib/inject-theme-name.js";
 import injectCSSFramework from "./lib/inject-css-framework.js";
 import downloadCWPTPackage from "./lib/download-package.js";
+import resolvePackageManager from "./lib/resolve-package-manager.js";
 
 async function run() {
   const cwd = process.cwd();
@@ -74,8 +75,11 @@ async function run() {
 
   s.stop("You're all set!");
 
+  // detect package manager and its command prefix
+  const { packageManager, commandPrefix } = resolvePackageManager();
+
   note(
-    `${color.cyan(`cd ${path.relative(cwd, filePath)}`)}\n${color.cyan("npm install")}\n${color.cyan("npm run watch")}`, 
+    `${color.cyan(`cd ${path.relative(cwd, filePath)}`)}\n${color.cyan(`${packageManager} install`)}\n${color.cyan(`${commandPrefix} watch`)}`, 
     "Now run"
   );
 }
