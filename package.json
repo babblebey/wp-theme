@@ -1,7 +1,8 @@
 {
-  "name": "create-wp-theme",
+  "name": "wp-theme",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "description": "An all-in-one WordPress theme development toolkit with JavaScript bundler, sass/css compiler, and live-reloading server.",
   "keywords": [
     "wordpress theme development",

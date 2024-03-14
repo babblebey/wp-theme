@@ -1,5 +1,5 @@
 {
-  "name": "create-wp-theme-docs",
+  "name": "wp-theme-docs",
   "version": "0.0.0",
   "description": "Command-line tool for creating WordPress theme.",
   "license": "MIT",

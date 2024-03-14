@@ -1,20 +1,36 @@
 {
-  "name": "create-wp-theme-cli",
-  "version": "0.0.0",
-  "description": "Command-line tool for creating WordPress theme.",
+  "name": "wp-theme",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Command-line tool for creating WordPress theme and developing it in an environment optimized for great DX",
   "license": "MIT",
+  "main": "index.js",
   "bin": {
-    "create-wp-theme": "",
-    "cwpt": ""
+    "wp-theme": "./index.js"
   },
   "keywords": [
-    "cwpt cli",
-    "create-wordpress-theme cli",
-    "wordpress theme cli",
-    "wordpress theme development cli"
+    "wordpress theme development",
+    "wordpress theme boilerplate",
+    "wordpress javascript bundler",
+    "wordpress sass compiler",
+    "bootstrap wordpress template",
+    "wordpress material design template",
+    "browsersync with wordpress",
+    "wordpress theme cli app",
+    "theme customization",
+    "wordpress theme development toolkit",
+    "wordpress theme generator",
+    "front-end development"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Olabode Lawal-Shittabey <babblebey@gmail.com>"
+  "author": "Olabode Lawal-Shittabey <babblebey@gmail.com>",
+  "dependencies": {
+    "@clack/prompts": "^0.7.0",
+    "envalid": "^8.0.0",
+    "giget": "^1.2.1",
+    "minimist": "^1.2.8",
+    "picocolors": "^1.0.0"
+  }
 }
