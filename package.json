@@ -1,5 +1,5 @@
 {
-  "name": "@babblebey/create-wp-theme",
+  "name": "wp-theme",
   "version": "0.0.0",
   "private": true,
   "type": "module",

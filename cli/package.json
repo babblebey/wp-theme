@@ -2,7 +2,7 @@
   "name": "wp-theme",
   "version": "1.0.0",
   "type": "module",
-  "description": "An all-in-one WordPress theme development toolkit with JavaScript bundler, sass/css compiler, and live-reloading server.",
+  "description": "Command-line tool for creating WordPress theme and developing it in an environment optimized for great DX",
   "license": "MIT",
   "main": "index.js",
   "bin": {
