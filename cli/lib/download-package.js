@@ -1,3 +1,4 @@
+import { cancel } from "@clack/prompts";
 import { downloadTemplate } from "giget";
 
 /**
