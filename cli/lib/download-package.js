@@ -1,10 +1,4 @@
-// import { cleanEnv } from "envalid";
 import { downloadTemplate } from "giget";
-// import { isNotEmptyStr } from "../utils/env-validators.js";
-
-// const env = cleanEnv(process.env ,{
-//   REPO_FULLNAME: isNotEmptyStr()
-// });
 
 /**
  * Download Package from the cwpt repository's `package` directory 
