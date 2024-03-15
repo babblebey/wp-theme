@@ -19,7 +19,7 @@ export default async function resolveThemeName(nameFromArgv) {
 
     if (isCancel(themeName)) {
       cancel(color.red("Operation cancelled."));
-      process.exit(1);
+      process.exit(0);
     }
   }
 
