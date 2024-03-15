@@ -7,7 +7,7 @@ import { downloadTemplate } from "giget";
  * @returns {Promise<{dir: string, source: string}>}
  */
 export default async function downloadCWPTPackage(packageSubdir, targetDir) {
-  const { dir, source } = await downloadTemplate(`github:babblebey/create-wp-theme/packages/${packageSubdir}#develop`, {
+  const { dir, source } = await downloadTemplate(`github:babblebey/create-wp-theme/packages/${packageSubdir}#main`, {
     dir: targetDir,
     repo: "babblebey/create-wp-theme",
     force: true,
