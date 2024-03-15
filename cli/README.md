@@ -1,9 +1,9 @@
-# Create WordPress Theme CLI
+# WP Theme
 
-Create WP Theme CLI is a command-line tool designed to streamline WordPress theme development. With an intuitive interface, it empowers you to create, manage, and customize WordPress themes effortlessly.
+wp-theme is a command-line tool designed to streamline WordPress theme development. With an intuitive interface, it empowers you to create, manage, and customize WordPress themes effortlessly.
 
 ```shell
-npx create-wp-theme <theme-name>
+npm install wp-theme -g
 ```
 
 ## Quick start
@@ -13,13 +13,13 @@ Generate your starter theme/boilerplate with your favorite CSS framework by runn
 ### Bootstrap
 
 ```shell
-npx create-wp-theme <theme-name> --bootstrap
+npx wp-theme new <theme-name> --bootstrap
 ```
 
 ### Material Design
 
 ```shell
-npx create-wp-theme <theme-name> --material
+npx wp-theme new <theme-name> --material
 ```
 
 ### Installation

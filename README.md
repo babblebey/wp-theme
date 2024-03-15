@@ -1,4 +1,4 @@
-# Create WordPress Theme
+# WP Theme
 
 A one-stop solution for crafting WordPress themes with finesse. Seamlessly bundled with a powerful tools that simplifies your development workflow.
 
@@ -6,7 +6,7 @@ A one-stop solution for crafting WordPress themes with finesse. Seamlessly bundl
 
 ### Online Generator
 
-Get Started by generating your theme with your favorite CSS framework with our [online generator](#)
+Get Started by generating your theme with your favorite CSS framework with our [online generator](#) (wip***)
 
 or
 
@@ -14,16 +14,16 @@ or
 
 You can use our cli tool by running the command below with your favorite CSS framework:
 
-### Bootstrap
+#### Bootstrap
 
 ```shell
-npx create-wp-theme <theme-name> --bootstrap
+npx wp-theme new <theme-name> --bootstrap
 ```
 
-### Material Design
+#### Material Design 
 
 ```shell
-npx create-wp-theme <theme-name> --material
+npx wp-theme new <theme-name> --material
 ```
 
 ### Installation

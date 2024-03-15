@@ -5,3 +5,11 @@ export const SUPPORTED_CSS_FRAMEWORK = [
     website: "https://getbootstrap.com/"
   }
 ];
+
+export const SUPPORTED_COMMANDS = [
+  {
+    action: "New WP Theme",
+    command: "new",
+    description: "Create a new WordPress boilerplate theme",
+  }
+];
